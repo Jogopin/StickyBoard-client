@@ -1,0 +1,17 @@
+
+nav{
+  
+    background-color: #e45353;
+    padding: 1rem;
+    margin: auto;
+}
+
+nav a{
+    color: black;
+    font-size: 1.4rem;
+    text-decoration: none;
+    padding: 1rem;
+}
+nav a.active{
+    color: white;
+ } 
