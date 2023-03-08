@@ -5,7 +5,7 @@ export default function NavBar(){
     return<>
         <nav>
             <NavLink to="/">HomePage</NavLink>
-            <NavLink to="/boards">Boards</NavLink>
+            <NavLink to="/myboards">My Boards</NavLink>
         </nav>
     </>
 }

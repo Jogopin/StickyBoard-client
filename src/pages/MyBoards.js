@@ -30,7 +30,7 @@ export default function MyBoards(){
                 </Link>
              
             ))}
-            <Outlet/>
+            {/* <Outlet/> */}
           </div>
         );
     }
