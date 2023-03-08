@@ -1,0 +1,26 @@
+.board{
+    border:1px solid black;
+    border-radius: 25px;
+    background-color: #F9F6EE;
+    margin: 1rem;
+
+    height: 80vh;
+
+    /* display: flex;
+    flex-wrap: wrap;
+    gap: 5px; */
+    
+    
+
+}
+.note{
+    margin: .3rem;
+    background-color: #fbe364;
+    width:150px;
+    aspect-ratio: 1/1;
+}
+.note *{
+   
+    margin: .5rem;
+    padding: .3rem
+}
