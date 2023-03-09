@@ -1,23 +1,30 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { Link, Outlet } from "react-router-dom"
+import NewBoard from "../components/NewBoard"
 
 export default function MyBoards(){
 
     const API_URL = process.env.REACT_APP_API_URL
-    const [myBoardsList,SetMyBoardsList] = useState(null)
-
+    const [myBoardsList,setMyBoardsList] = useState(null)
+    
+    // Get the boards
     useEffect(()=>{
+     getMyBoards()
+    },[])
+
+    const getMyBoards = ()=>{
       axios.get(`${API_URL}/api/boards`)
         .then(responseAxios=>{
-            console.log(responseAxios)
-            SetMyBoardsList(responseAxios.data)
+            
+            setMyBoardsList(responseAxios.data)
         })
         .catch(err=>{
             console.log("there has been an error getting the boards",err)
         })  
-    },[])
-
+      
+      }
+      
     const renderMyBoardsList= ()=>{
         return (
           <div>
@@ -38,8 +45,12 @@ export default function MyBoards(){
     return (
         <>
             <h1>My Boards</h1>
-        
+
+            <NewBoard getMyBoards={getMyBoards} />
+
             {myBoardsList ? renderMyBoardsList() : "Loading..."}
+
+
             
         </>
     )
