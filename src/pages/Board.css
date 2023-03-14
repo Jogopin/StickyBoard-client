@@ -6,9 +6,10 @@
 
     height: 80vh;
 
-    /* display: flex;
+    display: flex;
     flex-wrap: wrap;
-    gap: 5px; */
+    gap: 5px;
+    
     
     
 
@@ -16,7 +17,7 @@
 .note{
     margin: .3rem;
     background-color: #fbe364;
-    width:150px;
+    height:150px;
     aspect-ratio: 1/1;
 }
 .note *{
