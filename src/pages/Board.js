@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import NewNote from "../components/NewNote"
 import NoteDetails from "../components/NoteDetails"
+import EditNote from "../components/EditNote"
 
 
 export default function Board(){
@@ -51,7 +52,9 @@ export default function Board(){
 
         {notesList ? renderNotes() : ""}
 
-        {selectedNote ? <NoteDetails noteId={selectedNote} boardId={boardId} setSelectedNote={setSelectedNote}/> : ""}
+        {/* {selectedNote ? <NoteDetails noteId={selectedNote} boardId={boardId} setSelectedNote={setSelectedNote}/> : ""} */}
+        
+        {selectedNote ? <EditNote noteId={selectedNote} boardId={boardId} setSelectedNote={setSelectedNote} getNotesList={getNotesList}/> : ""}
         
     </>
 }
