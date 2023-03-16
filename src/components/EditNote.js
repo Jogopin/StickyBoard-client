@@ -44,7 +44,21 @@ export default function EditNote(props){
           })
         
     }
-   
+    const handleDeleteNote = (e) =>{
+
+      axios.delete(`${process.env.REACT_APP_API_URL}/api/notes/${boardId}/${noteId}`)
+      .then(responseAxios=>{
+        console.log(`note deleted correctly`,responseAxios.data)
+        setSelectedNote(null)
+      })
+      .catch(err=>{
+        console.log(`error deleting the note`,err)
+      })
+      .finally(()=>{
+        getNotesList()
+      })
+      
+    }
     const handleOnChangeChecklist = (e,i) =>{
       
       const{name,value,checked} = e.target
@@ -133,6 +147,13 @@ export default function EditNote(props){
             }}
           >
             -
+          </button>
+         
+          <button
+            className="btn-delete"
+            onClick={handleDeleteNote}
+          >
+            delete
           </button>
         </div>
       );
