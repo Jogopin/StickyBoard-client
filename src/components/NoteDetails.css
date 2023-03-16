@@ -1,5 +1,5 @@
 .note-details {
-    position: absolute;
+    /* position: absolute;
     
     background-color: #fbe364;
     
@@ -9,5 +9,9 @@
 
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
+
+    /* display: flex;
+    flex-direction: column; */
+
 }
