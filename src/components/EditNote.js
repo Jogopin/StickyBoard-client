@@ -119,9 +119,8 @@ export default function EditNote(props){
               onChange={(e)=>{setDescription(e.target.value)}}
             />
 
-            <div className="checklist container" >
+            <div className="checklist-container" >
 
-            </div>
             {checklist ? checklist.map((taskObj,index)=>{
               return<div className="task-container" key={index}>
                 <input type="checkbox" name="isChecked" checked={taskObj.isChecked}  onChange={(e)=>{handleOnChangeChecklist(e,index)}}/>
@@ -129,6 +128,7 @@ export default function EditNote(props){
                 <button onClick={(e)=>{handleDeleteTask(e,index)}}>x</button>
               </div>
             }): ""}
+            </div>
            
               <button onClick={handlePlusClick}>+</button>
 

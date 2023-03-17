@@ -42,6 +42,11 @@
     background-color:#e45353
 }
 
+.checklist-container{
+   
+    max-height: 50%;
+    overflow:auto;
+}
 .note-details textarea,
 .note-details input[name="title"]{
     box-sizing: border-box;
@@ -63,6 +68,8 @@
     min-height: 6rem;
     padding: 1rem;
     border :1px solid rgba(0, 0, 0, 0.151);
+
+    overflow: auto;
 }
 .task-container input[name="task"]{
     width: 80%;
