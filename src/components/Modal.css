@@ -1,0 +1,37 @@
+.modal-background{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+.modal-container{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+
+.modal-close-btn{
+    position: absolute ;
+    color: grey;
+    border: 1px solid grey;
+    right: 0;
+    top: 0;
+    margin: 5px;
+    border-radius: 4px;
+}
+
+.modal-close-btn:hover{
+    color: white;
+    background-color:#e45353
+}

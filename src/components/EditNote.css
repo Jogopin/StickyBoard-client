@@ -1,5 +1,5 @@
 .note-details {
-    position: absolute;
+    /* position: absolute; */
     
     background-color: #fbe364;
     
@@ -7,9 +7,9 @@
     aspect-ratio: 1/1;
 
 
-    top: 50%;
+    /* top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
 
     display: flex;
     flex-direction: column;

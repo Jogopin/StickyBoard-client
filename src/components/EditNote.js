@@ -137,18 +137,7 @@ export default function EditNote(props){
 
             
             <button>done</button>
-          </form>
-
-          <button
-            className="btn-x"
-            onClick={(e) => {
-              e.preventDefault()
-              setSelectedNote(null);
-            }}
-          >
-            -
-          </button>
-         
+          </form>       
           <button
             className="btn-delete"
             onClick={handleDeleteNote}
