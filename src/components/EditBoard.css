@@ -1,0 +1,27 @@
+
+
+.board-details{
+    background-color:#F9F6EE ;
+    border: 1px solid black;
+    width: 400px;
+    aspect-ratio: 16/9;
+    border-radius: 5px;
+}
+.board-form{
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.board-details  input[name="name"]{
+    box-sizing: border-box;
+    width: 100%;
+    background-color: transparent;
+    
+    font-size: 2rem;
+    text-align: center;
+    border :1px solid rgba(0, 0, 0, 0.151);
+
+}

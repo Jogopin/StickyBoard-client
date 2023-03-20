@@ -3,12 +3,15 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { Link, Outlet } from "react-router-dom"
 import NewBoard from "../components/NewBoard"
+import Modal from "../components/Modal"
+import EditBoard from "../components/EditBoard"
 
 export default function MyBoards(){
 
     const API_URL = process.env.REACT_APP_API_URL
     const [myBoardsList,setMyBoardsList] = useState(null)
-    
+    const [selectedBoard, setSelectedBoard] = useState(null)
+
     // Get the boards
     useEffect(()=>{
      getMyBoards()
@@ -41,9 +44,6 @@ export default function MyBoards(){
       
     }
 
-    const handleEdit =(boardId)=>{
-      console.log(`board ${boardId} edit`)
-    }
 
     const renderMyBoardsList= ()=>{
         return (
@@ -57,7 +57,7 @@ export default function MyBoards(){
                   <Link to={`/myboards/${board._id}`} >
                   <button><b>...</b></button>
                   </Link>
-                  <button onClick={()=>{handleEdit(board._id)}}>edit</button>
+                  <button onClick={()=>{setSelectedBoard(board)}}>edit</button>
                   <button onClick={()=>{handleDelete(board._id)}}>delete</button>
 
                 </div>
@@ -78,6 +78,14 @@ export default function MyBoards(){
 
             {myBoardsList ? renderMyBoardsList() : "Loading..."}
 
+            
+        <Modal open={selectedBoard} onClose={setSelectedBoard} >
+
+          <EditBoard boardObj={selectedBoard} setBoardObj={setSelectedBoard} getMyBoards={getMyBoards}/>
+
+            {/* <EditNote noteId={selectedNote} boardId={boardId}  getNotesList={getNotesList} setSelectedNote={setSelectedNote}/> */}
+        </Modal>
+            
 
             
         </>

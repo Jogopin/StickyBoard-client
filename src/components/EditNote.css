@@ -23,7 +23,7 @@
     height: 90%;
     /* border :1px solid black; */
 }
-.btn-x{
+/* .btn-x{
     position: absolute ;
     color: grey;
     border: 1px solid grey;
@@ -40,7 +40,7 @@
 .btn-x:hover{
     color: white;
     background-color:#e45353
-}
+} */
 
 .checklist-container{
    
