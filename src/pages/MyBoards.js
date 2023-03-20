@@ -52,13 +52,13 @@ export default function MyBoards(){
 
                 <div className="miniboard" key={board._id}>
                   
-                    <h2>{board.name}</h2>
                  
-                  <Link to={`/myboards/${board._id}`} >
-                  <button><b>...</b></button>
+                  <Link to={`/myboards/${board._id}`} className="miniboard-link" >
+                  
+                    <h2>{board.name}</h2>
                   </Link>
-                  <button onClick={()=>{setSelectedBoard(board)}}>edit</button>
-                  <button onClick={()=>{handleDelete(board._id)}}>delete</button>
+                  <button className="miniboard-btn" onClick={()=>{setSelectedBoard(board)}}>edit</button>
+                  <button className="miniboard-btn" onClick={()=>{handleDelete(board._id)}}>delete</button>
 
                 </div>
            
