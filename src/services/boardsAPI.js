@@ -3,7 +3,7 @@ import axios from "axios";
 const API_URL = process.env.REACT_APP_API_URL;
 
 
-export const getBoardsRequest = async () => {
+export const getAllBoardsRequest = async () => {
     const ENDPOINT = `${API_URL}/api/boards`;
     
     try {
@@ -13,6 +13,17 @@ export const getBoardsRequest = async () => {
         throw err;
     }
 };
+
+export const getBoardRequest = async (boardId)=>{
+  const ENDPOINT = `${API_URL}/api/boards/${boardId}`;
+    
+  try {
+      const response = await axios.get(ENDPOINT);
+      return response.data;
+  } catch (err) {
+      throw err;
+  }
+}
 
 export const createBoardRequest = async (newBoardData) =>{
     const ENDPOINT = `${API_URL}/api/boards`

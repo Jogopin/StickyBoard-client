@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import {
-  getBoardsRequest,
+  getAllBoardsRequest,
   deleteBoardRequest,
   updateBoardRequest,
   createBoardRequest,
@@ -12,14 +12,15 @@ export const useBoards = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    getBoards();
+    getAllBoards();
   }, []);
 
-  const getBoards = async () => {
+  const getAllBoards = async () => {
+
       setError(null)
       setIsLoading(true);
     try {
-      const boardsData = await getBoardsRequest();
+      const boardsData = await getAllBoardsRequest();
       setBoards(boardsData);
     } catch (err) {
         setError(err)    
@@ -27,50 +28,56 @@ export const useBoards = () => {
     } finally {
       setIsLoading(false);
     }
+
   };
 
   const deleteBoard = async (boardId) => {
+
     setError(null)
     try {
       await deleteBoardRequest(boardId);
       console.log(`board deleted`);
-      getBoards();
+      getAllBoards();
     } catch (err) {
         setError(err)
       console.log(`Error deleting board:`, err);
     }
+
   };
 
-  //update boards
-
   const updateBoard = async (boardId, updatedBoardData) => {
+
     setError(null)
     try {
       const boardUpdated = await updateBoardRequest(boardId, updatedBoardData);
       console.log(`board Updated`, boardUpdated);
-      getBoards();
+      getAllBoards();
     } catch (err) {
         setError(err)
       console.log(`Error updating the board`, err);
     }
+
   };
+
   const createNewBoard = async (newBoardData) => {
+    
     setError(null)
     try {
       const newBoard = await createBoardRequest(newBoardData);
       console.log(`board created`, newBoard);
-      getBoards();
+      getAllBoards();
     } catch (err) {
         setError(err)
       console.log(`Error creating a new board`, err);
     }
+    
   };
 
   return {
     boards,
     isLoading,
     error,
-    getBoards,
+    getAllBoards,
     createNewBoard,
     deleteBoard,
     updateBoard,
