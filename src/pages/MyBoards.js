@@ -4,14 +4,14 @@ import { Link, Outlet } from "react-router-dom"
 import NewBoard from "../components/NewBoard"
 import Modal from "../components/Modal"
 import EditBoard from "../components/EditBoard"
-import { useBoards } from "../hooks/useBoards"
+import { useMyBoards } from "../hooks/useMyBoards"
 
 export default function MyBoards(){
 
     
     const [selectedBoard, setSelectedBoard] = useState(null)
 
-    const { boards,deleteBoard,createNewBoard,updateBoard} = useBoards()
+    const { boards,deleteBoard,createNewBoard,updateBoard} = useMyBoards()
 
   
 
@@ -35,7 +35,7 @@ export default function MyBoards(){
               
              
             ))}
-            {/* <Outlet/> */}
+          
           </div>
         );
     }
@@ -55,7 +55,7 @@ export default function MyBoards(){
             updateBoard ={updateBoard}
           />
 
-          {/* <EditNote noteId={selectedNote} boardId={boardId}  getNotesList={getNotesList} setSelectedNote={setSelectedNote}/> */}
+          
         </Modal>
       </>
     );

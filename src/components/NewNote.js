@@ -1,34 +1,21 @@
-import "./NewNote.css"
+import "./NewNote.css";
 import axios from "axios";
 import { useState } from "react";
 
 export default function NewNote(props) {
-
-  const {boardId,getNotesList} = props
+  const { boardId, createNewNote } = props;
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const newNote = {title,description}
+    const newNote = { title, description };
 
-    axios.post(`${process.env.REACT_APP_API_URL}/api/notes/${boardId}`,newNote)
-        .then(responseAxios=>{
-            console.log(`note created`,responseAxios.data)
-            getNotesList()
-            
-        })
-        .catch(err=>{
-            console.log(`Error creating the note ${title}`,err)
-            
-        })
-        .finally(()=>{
-          setTitle("")
-          setDescription("")
+    createNewNote(newNote);
 
-        })
-  
+    setTitle("");
+    setDescription("");
   };
 
   return (

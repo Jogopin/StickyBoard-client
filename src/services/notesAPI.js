@@ -49,7 +49,7 @@ export const deleteNoteRequest = async (boardId,noteId) => {
   }
 };
 
-export const updateBoardRequest = async (boardId,noteId, updatedNoteData) => {
+export const updateNoteRequest = async (boardId,noteId, updatedNoteData) => {
   const ENDPOINT = `${API_URL}/api/notes/${boardId}/${noteId}`;
 
   try {

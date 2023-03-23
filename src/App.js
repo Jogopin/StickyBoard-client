@@ -10,7 +10,7 @@ import Board from './pages/Board';
 
 function App() {
 
-  const API_URL = process.env.REACT_APP_API_URL
+  
   
  
   return (
