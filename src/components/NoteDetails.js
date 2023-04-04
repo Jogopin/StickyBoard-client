@@ -46,7 +46,6 @@ export default function NoteDetails(props) {
   const handleOnChangeChecklist = (e, i) => {
     const { name, value, checked } = e.target;
 
-    //there are some errors when i checked the box, need to research more on that
     setChecklist((prevState) => {
       const newChecklist = [...prevState];
 

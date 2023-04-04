@@ -20,14 +20,11 @@ export const useBoard = (boardId) => {
     try {
       const NotesData = await getNotesFromBoardRequest(boardId);
       setNotesList(NotesData);
-
     } catch (err) {
       setError(err);
       console.log(`Error getting all the Notes:`, err);
-
     } finally {
       setIsLoading(false);
-
     }
   };
 
@@ -37,11 +34,9 @@ export const useBoard = (boardId) => {
       const newNote = await createNewNoteRequest(boardId, newNoteData);
       getAllNotes();
       console.log(`note created:`, newNote);
-
     } catch (err) {
       setError(err);
       console.log(`Error creating one Note:`, err);
-      
     } finally {
       setIsLoading(false);
     }

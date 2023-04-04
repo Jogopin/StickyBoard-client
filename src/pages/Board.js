@@ -1,48 +1,44 @@
-import "./Board.css"
-import { useState } from "react"
-import { useParams } from "react-router-dom"
-import NewNote from "../components/NewNote"
-import NoteDetails from "../components/NoteDetails"
+import "./Board.css";
+import { useState } from "react";
+import { useParams } from "react-router-dom";
+import NewNote from "../components/NewNote";
+import NoteDetails from "../components/NoteDetails";
 
-import Modal from "../components/Modal"
-import { useBoard } from "../hooks/useBoard"
+import Modal from "../components/Modal";
+import { useBoard } from "../hooks/useBoard";
+import Note from "../components/Note";
 
+export default function Board() {
+  const { boardId } = useParams();
+  const { notesList, createNewNote, getAllNotes } = useBoard(boardId);
 
-export default function Board(){
-    
+  const [selectedNote, setSelectedNote] = useState(null);
 
+  //Render the notes
+  const renderNotes = () => {
+    return (
+      <div className="board">
+        {notesList.map((note) => (
+          <Note key={note._id} {...note} setSelectedNote={setSelectedNote} />
+        ))}
+      </div>
+    );
+  };
 
-    const {boardId} = useParams()
-    const {notesList,createNewNote,getNote,getAllNotes}=useBoard(boardId)
+  return (
+    <>
+      <NewNote boardId={boardId} createNewNote={createNewNote} />
 
-    const [selectedNote,setSelectedNote]= useState(null)
+      {notesList ? renderNotes() : ""}
 
-    
-    
-  
-    //Render the notes
-    const renderNotes=() => {
-        return (<div className="board">
-            {notesList.map(note=>(
-                <div className="note" key={note._id}>
-                    <h3>{note.title}</h3>
-                    <p >{note.description}</p>
-                    <button onClick={()=>{setSelectedNote(note._id)}}>...</button>
-                </div>
-            ))}
-        </div>)
-    }
-    
-    return<>
-         
-        <NewNote boardId={boardId} createNewNote={createNewNote}/>
-
-        {notesList ? renderNotes() : ""}
-
-       
-        <Modal open={selectedNote} onClose={setSelectedNote} >
-            <NoteDetails noteId={selectedNote} boardId={boardId}  getAllNotes={getAllNotes} setSelectedNote={setSelectedNote}/>
-        </Modal>
-        
+      <Modal open={selectedNote} onClose={setSelectedNote}>
+        <NoteDetails
+          noteId={selectedNote}
+          boardId={boardId}
+          getAllNotes={getAllNotes}
+          setSelectedNote={setSelectedNote}
+        />
+      </Modal>
     </>
+  );
 }

@@ -9,7 +9,7 @@ export default function Modal(props) {
       <div className="modal-container">
         <button
           className="modal-close-btn"
-          onClick={(e) => {
+          onClick={() => {
            
             onClose(null);
           }}
