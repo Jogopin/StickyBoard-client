@@ -1,12 +1,13 @@
 import axios from "axios";
+import axiosInstance from "./axiosInstance";
 
-const API_URL = process.env.REACT_APP_API_URL;
+
 
 export const getAllBoardsRequest = async () => {
-  const ENDPOINT = `${API_URL}/api/boards`;
+  const ENDPOINT = `/api/boards`;
 
   try {
-    const response = await axios.get(ENDPOINT);
+    const response = await axiosInstance.get(ENDPOINT);
     return response.data;
 
   } catch (err) {
@@ -15,10 +16,10 @@ export const getAllBoardsRequest = async () => {
 };
 
 export const getBoardRequest = async (boardId) => {
-  const ENDPOINT = `${API_URL}/api/boards/${boardId}`;
+  const ENDPOINT = `/api/boards/${boardId}`;
 
   try {
-    const response = await axios.get(ENDPOINT);
+    const response = await axiosInstance.get(ENDPOINT);
     return response.data;
 
   } catch (err) {
@@ -27,10 +28,10 @@ export const getBoardRequest = async (boardId) => {
 };
 
 export const createBoardRequest = async (newBoardData) => {
-  const ENDPOINT = `${API_URL}/api/boards`;
+  const ENDPOINT = `/api/boards`;
 
   try {
-    const response = await axios.post(ENDPOINT, newBoardData);
+    const response = await axiosInstance.post(ENDPOINT, newBoardData);
     return response.data;
 
   } catch (err) {
@@ -39,10 +40,10 @@ export const createBoardRequest = async (newBoardData) => {
 };
 
 export const deleteBoardRequest = async (boardId) => {
-  const ENDPOINT = `${API_URL}/api/boards/${boardId}`;
+  const ENDPOINT = `/api/boards/${boardId}`;
 
   try {
-    const response = await axios.delete(ENDPOINT);
+    const response = await axiosInstance.delete(ENDPOINT);
     return response.data;
 
   } catch (err) {
@@ -51,10 +52,10 @@ export const deleteBoardRequest = async (boardId) => {
 };
 
 export const updateBoardRequest = async (boardId, updatedBoardData) => {
-  const ENDPOINT = `${API_URL}/api/boards/${boardId}`;
+  const ENDPOINT = `/api/boards/${boardId}`;
 
   try {
-    const response = await axios.put(ENDPOINT, updatedBoardData);
+    const response = await axiosInstance.put(ENDPOINT, updatedBoardData);
     return response.data;
     
   } catch (err) {
