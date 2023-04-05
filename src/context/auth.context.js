@@ -61,7 +61,7 @@ function AuthProviderWrapper(props) {
 
   useEffect(() => {
     authenticateUser()
-  });
+  },[]);
 
   return (
     <AuthContext.Provider
