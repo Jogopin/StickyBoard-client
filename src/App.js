@@ -1,12 +1,12 @@
 import './App.css';
-import axios from 'axios';
-import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import NavBar from './components/NavBar';
 import HomePage from './pages/HomePage';
 import MyBoards from './pages/MyBoards';
 import Board from './pages/Board';
+import SignupPage from './pages/SignupPage';
+import LoginPage from './pages/LoginPage';
 
 function App() {
 
@@ -21,6 +21,8 @@ function App() {
     
         <Route path="/myboards" element={<MyBoards />}/>       
         <Route path="/myboards/:boardId" element={<Board/>} />
+        <Route path="/signup" element={ <SignupPage /> } />
+        <Route path="/login" element={ <LoginPage /> } />
       </Routes>
     </div>
   );
